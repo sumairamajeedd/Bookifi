@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bookifi - Unlock a Universe of Stories</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <!-- Tailwind CDN for testing -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'book-orange': '#B85C38',
+              'book-light': '#F5F5F0',
+              'book-dark': '#2D2D2D',
+              'book-cream': '#FFF8F0'
+            },
+            fontFamily: {
+              serif: ['Georgia', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-book-light font-serif">
+    <%= render 'shared/navigation' %>
+    
+    <main>
+      <%= yield %>
+    </main>
+    
+    <%= render 'shared/footer' %>
+  </body>
+</html>

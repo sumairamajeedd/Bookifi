@@ -1,0 +1,70 @@
+<!-- Navigation -->
+<nav class="flex justify-between items-center px-6 lg:px-8 py-4 bg-white/80 backdrop-blur-sm fixed w-full z-50 transition-all duration-300">
+  <!-- Logo -->
+  <%= link_to root_path, class: "flex items-center space-x-2 group" do %>
+    <div class="w-10 h-10 bg-book-orange rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+      <span class="text-white text-sm font-bold">BF</span>
+    </div>
+    <span class="text-book-orange font-bold text-2xl tracking-tight">Bookifi</span>
+  <% end %>
+  
+  <!-- Desktop Navigation Links -->
+  <div class="hidden md:flex space-x-8 text-book-dark">
+    <%= link_to "Features", features_path, class: "hover:text-book-orange transition-colors duration-200 font-medium" %>
+    <%= link_to "Testimonials", testimonials_path, class: "hover:text-book-orange transition-colors duration-200 font-medium" %>
+    <%= link_to "About", about_path, class: "hover:text-book-orange transition-colors duration-200 font-medium" %>
+    <%= link_to "Contact", contact_path, class: "hover:text-book-orange transition-colors duration-200 font-medium" %>
+  </div>
+  
+  <!-- Auth Buttons -->
+  <div class="hidden md:flex space-x-4">
+    <button class="text-book-dark hover:text-book-orange transition-colors duration-200 font-medium">
+      Log In
+    </button>
+    <button class="bg-book-orange text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105 shadow-md font-medium">
+      Sign Up
+    </button>
+  </div>
+  
+  <!-- Mobile Menu Button -->
+  <div class="md:hidden">
+    <button id="mobile-menu-button" class="text-book-dark hover:text-book-orange transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-white z-40 pt-20">
+  <div class="flex flex-col space-y-6 px-8 py-8 text-book-dark">
+    <%= link_to "Features", features_path, class: "text-xl hover:text-book-orange transition-colors" %>
+    <%= link_to "Testimonials", testimonials_path, class: "text-xl hover:text-book-orange transition-colors" %>
+    <%= link_to "About", about_path, class: "text-xl hover:text-book-orange transition-colors" %>
+    <%= link_to "Contact", contact_path, class: "text-xl hover:text-book-orange transition-colors" %>
+    
+    <div class="pt-6 space-y-4">
+      <button class="w-full text-left text-xl text-book-dark hover:text-book-orange transition-colors">
+        Log In
+      </button>
+      <button class="w-full bg-book-orange text-white px-6 py-3 rounded-lg text-xl font-medium">
+        Sign Up
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
